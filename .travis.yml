@@ -1,0 +1,62 @@
+language: cpp
+sudo: required
+dist: trusty
+addons:
+    apt:
+        sources:
+          # add PPAs with more up-to-date toolchains
+          - ubuntu-toolchain-r-test
+          - llvm-toolchain-precise-3.6
+        packages:
+          # install toolchains
+          - gcc-5
+          - g++-5
+          - clang-3.6
+
+matrix:
+  include:
+    - compiler: gcc
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-4.9
+      env: COMPILER=g++-4.9
+    - compiler: gcc
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-5
+      env: COMPILER=g++-5
+    - compiler: clang
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.6
+          packages:
+            - clang-3.6
+      env: COMPILER=clang++-3.6
+    - compiler: clang
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.7
+          packages:
+            - clang-3.7
+      env: COMPILER=clang++-3.7
+
+before_install:
+  - |
+    wget -q https://cmake.org/files/v3.6/cmake-3.6.3-Linux-x86_64.sh
+    sh cmake-3.6.3-Linux-x86_64.sh --skip-license
+
+script:
+  - mkdir build
+  - cd build
+  - ../bin/cmake  -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF ..
+  - make
