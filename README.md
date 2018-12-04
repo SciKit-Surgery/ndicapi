@@ -1,3 +1,5 @@
+([![Build Status](https://ci.appveyor.com/api/projects/status/5pm89ej732c1ekf0/branch/master)](https://ci.appveyor.com/project/MattClarkson/cmakecatchtemplate))](https://ci.appveyor.com/project/thompson318/ndicapi)
+
 # History
 * Program:   NDI Combined API C Interface Library
 * Creator:   David Gobbi
