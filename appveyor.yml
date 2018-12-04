@@ -37,7 +37,7 @@ build_script:
   - echo Build ndicapi:
   - mkdir build
   - cd build
-  - cmake -G "%COMPILER%" -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=OFF  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF --config %CONFIGURATION% ..
+  - cmake -G "%COMPILER%" -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF --config %CONFIGURATION% ..
   - cmake --build . --config %CONFIGURATION%
 
 
