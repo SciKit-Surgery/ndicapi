@@ -5,7 +5,7 @@ mac_indicator = 'darwin'
 linux_indicator = 'linux'
 windows_indicator = 'win'
 platform = sys.platform
-cxx_library_dir = "@CMAKE_BUILD_PREFIX@/lib"
+cxx_library_dir = "@CMAKE_INSTALL_PREFIX@/lib"
 
 extra_link_args = []
 if platform.startswith(mac_indicator):
