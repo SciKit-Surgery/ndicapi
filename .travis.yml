@@ -58,7 +58,7 @@ before_install:
 script:
   - mkdir build
   - cd build
-  - ../bin/cmake  -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF CMAKE_INSTALL_PREFIX=../install ..
+  - ../bin/cmake  -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF -DCMAKE_INSTALL_PREFIX=../install ..
   - make
   - make install
   - cd ../
