@@ -11,8 +11,8 @@ shallow_clone: false
 
 environment:
   matrix:
-    - COMPILER: "Visual Studio 14 Win64"
-      PYTHON: "C:\\Python27-x64"
+          #- COMPILER: "Visual Studio 14 Win64"
+          # PYTHON: "C:\\Python27-x64"
     - COMPILER: "Visual Studio 14 Win64"
       PYTHON: "C:\\Python36-x64"
     # For Python versions available on Appveyor, see
