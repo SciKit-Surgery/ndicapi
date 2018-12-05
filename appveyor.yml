@@ -31,6 +31,9 @@ environment:
       #DISTUTILS_USE_SDK: "1"
       #- PYTHON: "C:\\Python35-x64"
 
+install:
+  # We need wheel installed to build wheels
+  - "%PYTHON%\\python.exe -m pip install wheel"
 
 platform:
   - x64
@@ -58,7 +61,7 @@ build_script:
   - mkdir build
   - mkdir install
   - cd build
-  - cmake -G "%COMPILER%" -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF --config %CONFIGURATION%-DCMAKE_INSTALL_PREFIX=../install ..
+  - cmake -G "%COMPILER%" -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF -DCMAKE_INSTALL_PREFIX=../install --config %CONFIGURATION%..
   - cmake --build . --config %CONFIGURATION%
   - cmake --build . --target install --config %CONFIGURATION%
   - cd ../
