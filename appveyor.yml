@@ -39,5 +39,7 @@ build_script:
   - cd build
   - cmake -G "%COMPILER%" -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF --config %CONFIGURATION% ..
   - cmake --build . --config %CONFIGURATION%
+  - cd ../
+  - python3 setup.py sdist bdist_wheel
 
 

@@ -60,3 +60,5 @@ script:
   - cd build
   - ../bin/cmake  -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF ..
   - make
+  - cd ../
+  - python setup.py sdist bdist_wheel
