@@ -67,4 +67,6 @@ build_script:
   - cd ../
   - "%PYTHON%\\python.exe setup.py bdist_wheel"
 
-
+artifacts:
+  # bdist_wheel puts your built wheel in the dist directory
+  - path: dist\*
