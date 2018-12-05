@@ -60,7 +60,7 @@ build_script:
   - cd build
   - cmake -G "%COMPILER%" -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF --config %CONFIGURATION%-DCMAKE_INSTALL_PREFIX=../install ..
   - cmake --build . --config %CONFIGURATION%
-  - cmake --install . --config %CONFIGURATION%
+  - cmake --build . --target install --config %CONFIGURATION%
   - cd ../
   - "%PYTHON%\\python.exe setup.py bdist_wheel"
 
