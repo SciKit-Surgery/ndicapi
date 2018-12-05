@@ -12,6 +12,23 @@ shallow_clone: false
 environment:
   matrix:
     - COMPILER: "Visual Studio 14 Win64"
+    # For Python versions available on Appveyor, see
+    # http://www.appveyor.com/docs/installed-software#python
+    # The list here is complete (excluding Python 2.6, which
+    # isn't covered by this document) at the time of writing.
+
+    - PYTHON: "C:\\Python27"
+    - PYTHON: "C:\\Python33"
+    - PYTHON: "C:\\Python34"
+    - PYTHON: "C:\\Python35"
+    - PYTHON: "C:\\Python27-x64"
+    - PYTHON: "C:\\Python33-x64"
+      DISTUTILS_USE_SDK: "1"
+    - PYTHON: "C:\\Python34-x64"
+      DISTUTILS_USE_SDK: "1"
+    - PYTHON: "C:\\Python35-x64"
+    - PYTHON: "C:\\Python36-x64"
+
 
 platform:
   - x64
@@ -21,6 +38,7 @@ configuration:
 
 matrix:
   fast_finish: true
+
 
 before_build:
   - echo --------------------------------------------------------------------------------
@@ -36,10 +54,11 @@ build_script:
   - echo --------------------------------------------------------------------------------
   - echo Build ndicapi:
   - mkdir build
+  - mkdir install
   - cd build
-  - cmake -G "%COMPILER%" -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF --config %CONFIGURATION% ..
+  - cmake -G "%COMPILER%" -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF --config %CONFIGURATION%-DCMAKE_INSTALL_PREFIX=../install ..
   - cmake --build . --config %CONFIGURATION%
   - cd ../
-  - python3 setup.py sdist bdist_wheel
+  - %PYTHON%\\python.exe setup.py sdist bdist_wheel
 
 
