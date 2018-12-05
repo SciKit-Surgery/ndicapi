@@ -61,7 +61,7 @@ build_script:
   - mkdir build
   - mkdir install
   - cd build
-  - cmake -G "%COMPILER%" -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF -DCMAKE_INSTALL_PREFIX=../install --config %CONFIGURATION%..
+  - cmake -G "%COMPILER%" -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF -DCMAKE_INSTALL_PREFIX=../install --config %CONFIGURATION% ..
   - cmake --build . --config %CONFIGURATION%
   - cmake --build . --target install --config %CONFIGURATION%
   - cd ../
