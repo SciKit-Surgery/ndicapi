@@ -13,8 +13,8 @@ if platform.startswith(mac_indicator):
     extra_link_args.append('-rpath')         # tell linker to resolve RPATH to:
     extra_link_args.append(cxx_library_dir)  # cxx_library_dir, on Mac
 
-if platform.startswith(windows_indicator):
-    cxx_library_dir = ""
+#if platform.startswith(windows_indicator):
+#    cxx_library_dir = ""
 
 ndicapy = setuptools.Extension('ndicapy',
                     sources=[
@@ -27,7 +27,8 @@ ndicapy = setuptools.Extension('ndicapy',
                     libraries=['ndicapi'],
                     extra_link_args=extra_link_args,
                     library_dirs=[cxx_library_dir],
-            #        runtime_library_dirs=[cxx_library_dir],
+                  #  runtime_library_dirs=[cxx_library_dir],
+                    runtime_library_dirs=[],
                     )
 
 setuptools.setup(name='ndicapi',
