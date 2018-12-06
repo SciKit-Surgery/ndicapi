@@ -27,7 +27,7 @@ ndicapy = setuptools.Extension('ndicapy',
                     libraries=['ndicapi'],
                     extra_link_args=extra_link_args,
                     library_dirs=[cxx_library_dir],
-                    runtime_library_dirs=[cxx_library_dir],
+            #        runtime_library_dirs=[cxx_library_dir],
                     )
 
 setuptools.setup(name='ndicapi',
