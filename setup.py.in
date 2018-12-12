@@ -10,6 +10,11 @@ extra_link_args = []
 if platform.startswith(mac_indicator):
     extra_link_args.append('-Wl')  # pass the following options to linker
 
+libraries=[]
+if platform.startswith(windows_indicator):
+    libraries.append('wsock32')
+    libraries.append('ws2_32')
+
 ndicapy = setuptools.Extension('ndicapy',
                     sources=[
                         'ndicapi.cxx',
@@ -20,6 +25,7 @@ ndicapy = setuptools.Extension('ndicapy',
                         'ndicapimodule.cxx',
                     ],
                     extra_link_args=extra_link_args,
+                    libraries=libraries,
                     )
 
 setuptools.setup(name='ndicapi',
