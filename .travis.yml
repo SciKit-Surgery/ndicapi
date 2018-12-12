@@ -25,13 +25,15 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - g++-5
-      env: COMPILER=g++-5
+      env:
+      #  - COMPILER=g++-5
+        - MB_PYTHON_VERSION=3.6
 
     - os: osx
       language: generic
       osx_image: xcode8
       env:
-        - MB_PYTHON_VERSION=2.7
+        - MB_PYTHON_VERSION=3.6
 
 script:
   - mkdir build
@@ -44,6 +46,7 @@ script:
 after_success: |
     if [ -n "$TRAVIS_TAG" ]; then
         set -x
+        pip install --upgrade pip
         pip install twine
 
         if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
