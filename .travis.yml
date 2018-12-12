@@ -10,9 +10,6 @@ addons:
           # install toolchains
           - g++-5
 
-    artifacts: true
-        paths:
-          - dist/
 
 matrix:
   include:
