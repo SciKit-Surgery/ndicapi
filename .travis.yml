@@ -27,7 +27,6 @@ matrix:
       osx_image: xcode8
       env:
         - MB_PYTHON_VERSION=2.7
-        - BDIST_PARAMS="-- -DCMAKE_OSX_DEPLOYMENT_TARGET:STRING=10.7"
 
 before_install:
   - |
@@ -36,9 +35,8 @@ before_install:
 
 script:
   - mkdir build
-  - mkdir install
   - cd build
-  - ../bin/cmake  -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF -DCMAKE_INSTALL_PREFIX=../install ..
+  - cmake  -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF -DCMAKE_INSTALL_PREFIX=../install ..
   - make
   - cd ../
   - python setup.py sdist bdist_wheel
