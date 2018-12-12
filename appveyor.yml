@@ -9,6 +9,9 @@ clone_folder: c:\projects\ndicapi
 
 shallow_clone: false
 
+skip_commits:
+  message: /\[av skip\]/
+
 environment:
   matrix:
           #- COMPILER: "Visual Studio 14 Win64"
