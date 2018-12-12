@@ -1,5 +1,6 @@
 import setuptools
 import sys
+import io
 
 mac_indicator = 'darwin'
 linux_indicator = 'linux'
