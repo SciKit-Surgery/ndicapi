@@ -13,6 +13,8 @@ addons:
           - g++-5
           - clang-3.6
 
+    artifacts: true
+
 matrix:
   include:
     - compiler: gcc
@@ -61,7 +63,6 @@ script:
   - cd build
   - ../bin/cmake  -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF -DCMAKE_INSTALL_PREFIX=../install ..
   - make
-  - make install
   - cd ../
   - python setup.py sdist bdist_wheel
 
