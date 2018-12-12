@@ -25,6 +25,13 @@ matrix:
             - g++-5
       env: COMPILER=g++-5
 
+    - os: osx
+      language: generic
+      osx_image: xcode8
+      env:
+        - MB_PYTHON_VERSION=2.7
+        - BDIST_PARAMS="-- -DCMAKE_OSX_DEPLOYMENT_TARGET:STRING=10.7"
+
 before_install:
   - |
     wget -q https://cmake.org/files/v3.6/cmake-3.6.3-Linux-x86_64.sh
