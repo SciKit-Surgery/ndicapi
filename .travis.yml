@@ -31,9 +31,6 @@ after_success: |
         pip install --upgrade pip
         pip install twine
 
-        if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-          pip install --upgrade pyOpenSSL
-
         if [ $DOCKER_IMAGE ]
         then
                 twine upload --repository-url https://test.pypi.org/legacy/ -u thompson318 -p ${PYPI_PASS} wheelhouse/*
@@ -46,15 +43,3 @@ after_success: |
         echo "Tag not set, deployment skipped."
     fi
 
-    #deploy:
-    #       provider: pypi
-    #    server: https://testpypi.python.org/pypi # Remove for deployment to official PyPi repo
-    #    user: "thompson318"
-    #    password:
-    #            secure: BNHKvLV0AYlKlVq9upiip72P0lHK0P7XbhxIMAqM3KEwpedwW2DQw6BF+y5J2RTrMhhvFzKchNwO5hrY0Wpg0wn0/JHgVBTw5pobRs7CBuRzf5vCK/V8ulJO4hwf/6ly92gobHEduCWhhsFZ7q1Jf1a0nIzl3v9j+KwzDCKB/+vAahKw9A3ggDrhe3FYxHrPdqtqOzKjy8HLMX4hFwf2+6BoIRuiaobEAVousBnrV4XNpaTVuLKzOD9ZAvlcuW6Ivhj91IvwCqr+4Hq6mieK76Ozte/2BVcXjsvqglGyIqDBZvemNGFGMJWA5Fazcdy3BbbTdbpejXPCIL5csV+NBAiPEOZe/pz0asrPHN6JJn/19Q/ebSpZR7Xb/ii3vy9jqrmMYK2J8KK888meMZbaxJV27zcIfO7h9XkPNAXD1GTjik0wLrGxb9HKkn49dR8oXXZfz5JgWiygp9IAYQBhE0WgyjAFMKN0Bi07OuDTZEtRElwZpXvBR1Tdepa1DIf38fBlQ+jLk+fg4l4I96dS8kNXQXEtRob860EYyEiFc7MYtVQEoVerCeOrdhhpJfzPg5S13EmoZjhYa4SkDJumGNGOOXmMylS2xfEHV9BK5CbwROwuf0dtXkF60k/hUaBZFRa6rUJ6g70N5osVtfWXovYr4g+Z8pa6g+czCObqVRc=
-    #    distributions: "sdist bdist_wheel"
-    #    skip_existing: true
-    #    skip_cleanup: true
-    #   on:
-    #            tags: true
-    #mv dist/ndicapi-3.2-cp36-cp36m-linux_x86_64.whl dist/ndicapi-3.2-cp36-cp36m-manylinux1_x86_64.whl
