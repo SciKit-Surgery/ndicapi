@@ -38,7 +38,7 @@ matrix:
 script:
   - mkdir build
   - cd build
-  - cmake  -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF -DCMAKE_INSTALL_PREFIX=../install ..
+  - cmake  -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF ..
   - make
   - cd ../
   - python setup.py sdist bdist_wheel
@@ -53,7 +53,7 @@ after_success: |
           pip install --upgrade pyOpenSSL
         fi
 
-        twine upload -repository-url https://test.pypi.org/ -u thompson318 -p ${PYPI_PASS} --skip-existing dist/*
+        twine upload --repository-url https://test.pypi.org/legacy/ -u thompson318 -p ${PYPI_PASS} --skip-existing dist/*
         set +x
     else
         echo "Tag not set, deployment skipped."
@@ -71,3 +71,4 @@ after_success: |
     #    skip_cleanup: true
     #   on:
     #            tags: true
+    #mv dist/ndicapi-3.2-cp36-cp36m-linux_x86_64.whl dist/ndicapi-3.2-cp36-cp36m-manylinux1_x86_64.whl
