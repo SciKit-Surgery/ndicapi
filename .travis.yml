@@ -8,16 +8,6 @@ env:
 
 matrix:
   include:
-    - compiler: gcc
-      env:
-        - MB_PYTHON_VERSION=3.6
-
-    - os: osx
-      language: generic
-      osx_image: xcode8
-      env:
-        - MB_PYTHON_VERSION=3.6
-
     - sudo: required
       services:
         - docker
