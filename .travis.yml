@@ -19,12 +19,9 @@ script:
   - cmake  -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF ..
   - make
   - cd ../
-  - if [ $DOCKER_IMAGE ]
-  - then
-  -     docker pull $DOCKER_IMAGE
-  -     docker run --rm -v `pwd`:/io $DOCKER_IMAGE $PRE_CMD /io/travis/build-wheels.sh
-  -     ls wheelhouse/
-  - fi
+  - docker pull $DOCKER_IMAGE
+  - docker run --rm -v `pwd`:/io $DOCKER_IMAGE $PRE_CMD /io/travis/build-wheels.sh
+  - ls wheelhouse/
 
 after_success: |
 
