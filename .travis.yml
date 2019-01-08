@@ -28,11 +28,11 @@ script:
 
 after_success: |
 
-    pip install --upgrade pip
-    pip install twine
+    pip install --upgrade pip --user
+    pip install twine --user
 
     if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      pip install --upgrade pyOpenSSL
+      pip install --upgrade pyOpenSSL --user
     fi
 
     twine upload --repository-url https://test.pypi.org/legacy/ -u thompson318 -p ${PYPI_PASS} dist/*
