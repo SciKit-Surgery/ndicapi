@@ -8,9 +8,6 @@ env:
 
 matrix:
   include:
-    - compiler: gcc
-      env:
-        - MB_PYTHON_VERSION=3.6
 
     - os: osx
       language: generic
@@ -35,5 +32,5 @@ after_success: |
       pip install --upgrade pyOpenSSL --user
     fi
 
-    twine upload --repository-url https://test.pypi.org/legacy/ -u thompson318 -p ${PYPI_PASS} dist/*
+    python -m twine upload --repository-url https://test.pypi.org/legacy/ -u thompson318 -p ${PYPI_PASS} dist/*
 
