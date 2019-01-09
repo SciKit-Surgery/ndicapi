@@ -20,6 +20,7 @@ This fork implements continuous integration and deployment of binary Python whee
 Building and deployment should be handled automatically using Travis (mac and linux) and Appveyor services. For details read .travis.yml and appveyor.yml.
 
 At present mac and manylinux wheels are implemented in two separate branches. Master should handle mac and Windows branches, to build and deply manylinux wheels switch to branch manylinux, update from master and push.
+Deployment of mac and linux wheels is automatic, windows wheels can be downloaded from appveyor artifacts and uploaded manually.
 
 ## Contents
 The main contents of this package are as follows:
