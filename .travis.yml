@@ -12,10 +12,6 @@ matrix:
     - os: osx
       language: generic
       osx_image: xcode8
-      env:
-        - MB_PYTHON_VERSION=3.6
-      env:
-        - MB_PYTHON_VERSION=2.7
 
 script:
   - mkdir build
@@ -24,7 +20,8 @@ script:
   - make
   - cd ../
   - mv README.pypi.md README.md
-  - python setup.py sdist bdist_wheel
+  - python2.7 setup.py sdist bdist_wheel
+  - python3.6 setup.py sdist bdist_wheel
 
 after_success: |
 
