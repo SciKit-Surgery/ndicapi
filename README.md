@@ -1,4 +1,7 @@
-([![Build Status](https://ci.appveyor.com/api/projects/status/5pm89ej732c1ekf0/branch/master)](https://ci.appveyor.com/project/MattClarkson/cmakecatchtemplate))](https://ci.appveyor.com/project/thompson318/ndicapi)
+(https://ci.appveyor.com/project/thompson318/ndicapi)
+
+[![Build Status](https://travis-ci.org/thompson318/ndicapi.svg?branch=ci-scripts)](https://travis-ci.org/thompson318/ndicapi)
+[![Build Status](https://ci.appveyor.com/api/projects/status/e32ecvlt0cwp8lfl/branch/ci-scripts?svg=true)](https://ci.appveyor.com/project/thompson318/ndicapi)
 
 # History
 * Program:   NDI Combined API C Interface Library
