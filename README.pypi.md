@@ -1,23 +1,21 @@
 # History
-* Program:   Python Wheels for PLUS Toolkit ndicapi libary
+* Program:   NDI Combined API C Interface Library
 * Creator:   David Gobbi
 * Language:  English
-* Authors:    
+* Authors:
   * David Gobbi
   * Andras Lasso <lassoan@queensu.ca>
   * Adam Rankin <arankin@robarts.ca>
   * Stephen Thompson <s.thompson@ucl.ac.uk>
-* Version: 1.4
-  * Date: 2005/07/01
-* Version: 1.5
-  * Date: 2015/05/30
-* Version: 1.6
-  * Date: 2016/03/08
 
 # Overview
+These are binary python wheels of the PlusToolKits's ndicapi library (https://github.com/PlusToolkit/ndicapi).
+The CI scripts where developed on and hosted by (https://github.com/thompson318/ndicapi).
 
-This provides python wheels for the PLUS Toolkit's ndicapi c library.
+This package provides provides a straightforward Python interface to AURORA, POLARIS, and VEGA systems manufactured by Northern Digital Inc. This library is provided by the Plus library, and is not supported by Northern Digital Inc.
 
-(https://github.com/PlusToolkit/ndicapi)
+## Acknowledgments
+
+The implementation of continuous integration and deployment was Supported by the [Wellcome Trust](https://wellcome.ac.uk/)  and the [EPSRC](https://www.epsrc.ac.uk/) as part of the [Wellcome Centre for Interventional and Surgical Sciences](http://www.ucl.ac.uk/weiss).
 
 
