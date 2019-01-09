@@ -10,10 +10,11 @@ matrix:
   include:
 
     - os: osx
-      language: generic
       osx_image: xcode8
       env:
         - PYTHON_VERSION=2.7
+    
+    - os: osx
       osx_image: xcode8
       env:
         - PYTHON_VERSION=3.6
