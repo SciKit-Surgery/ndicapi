@@ -32,7 +32,7 @@ ndicapy = setuptools.Extension('ndicapy',
                     )
 
 setuptools.setup(name='ndicapi',
-      version='3.2.2',
+      version='3.2.0',
       url='https://github.com/thompson318/ndicapi',
       license='MIT',
       description='This package allows interfacing with NDI tracking devices',
