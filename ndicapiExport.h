@@ -12,6 +12,10 @@
 #ifndef __ndicapiExport_h
 #define __ndicapiExport_h
 
-#define ndicapiExport
+#if defined(WIN32)
+ #define ndicapiExport __declspec( dllexport )
+#else
+ #define ndicapiExport
+#endif
 
 #endif
