@@ -880,7 +880,7 @@ static PyObject* Py_ndiPVWRFromFile(PyObject* module, PyObject* args)
 
 static PyObject* Py_ndiGetGXTransform(PyObject* module, PyObject* args)
 {
-  char port;
+  int port;
   int result;
   double transform[8];
   ndicapi* pol;
@@ -909,7 +909,7 @@ static PyObject* Py_ndiGetGXTransform(PyObject* module, PyObject* args)
 
 static PyObject* Py_ndiGetBXTransform(PyObject* module, PyObject* args)
 {
-  char port;
+  int port;
   int result;
   float transform[8];
   ndicapi* pol;
@@ -938,7 +938,7 @@ static PyObject* Py_ndiGetBXTransform(PyObject* module, PyObject* args)
 
 static PyObject* Py_ndiGetTXTransform(PyObject* module, PyObject* args)
 {
-  char port;
+  int port;
   int result;
   double transform[8];
   ndicapi* pol;
@@ -967,7 +967,7 @@ static PyObject* Py_ndiGetTXTransform(PyObject* module, PyObject* args)
 
 static PyObject* Py_ndiGetGXPortStatus(PyObject* module, PyObject* args)
 {
-  char port;
+  int port;
   int result;
   ndicapi* pol;
 
@@ -984,7 +984,7 @@ static PyObject* Py_ndiGetGXPortStatus(PyObject* module, PyObject* args)
 
 static PyObject* Py_ndiGetBXPortStatus(PyObject* module, PyObject* args)
 {
-  char port;
+  int port;
   int result;
   ndicapi* pol;
 
@@ -1000,7 +1000,7 @@ static PyObject* Py_ndiGetBXPortStatus(PyObject* module, PyObject* args)
 
 static PyObject* Py_ndiGetTXPortStatus(PyObject* module, PyObject* args)
 {
-  char port;
+  int port;
   int result;
   ndicapi* pol;
 
@@ -1065,7 +1065,7 @@ static PyObject* Py_ndiGetTXSystemStatus(PyObject* module, PyObject* args)
 
 static PyObject* Py_ndiGetGXToolInfo(PyObject* module, PyObject* args)
 {
-  char port;
+  int port;
   int result;
   ndicapi* pol;
 
@@ -1081,7 +1081,7 @@ static PyObject* Py_ndiGetGXToolInfo(PyObject* module, PyObject* args)
 
 static PyObject* Py_ndiGetGXMarkerInfo(PyObject* module, PyObject* args)
 {
-  char port;
+  int port;
   char marker;
   int result;
   ndicapi* pol;
@@ -1098,7 +1098,7 @@ static PyObject* Py_ndiGetGXMarkerInfo(PyObject* module, PyObject* args)
 
 static PyObject* Py_ndiGetGXSingleStray(PyObject* module, PyObject* args)
 {
-  char port;
+  int port;
   int result;
   double coord[3];
   ndicapi* pol;
@@ -1125,7 +1125,7 @@ static PyObject* Py_ndiGetGXSingleStray(PyObject* module, PyObject* args)
 
 static PyObject* Py_ndiGetGXFrame(PyObject* module, PyObject* args)
 {
-  char port;
+  int port;
   unsigned long result;
   ndicapi* pol;
 
@@ -1141,7 +1141,7 @@ static PyObject* Py_ndiGetGXFrame(PyObject* module, PyObject* args)
 
 static PyObject* Py_ndiGetBXFrame(PyObject* module, PyObject* args)
 {
-  char port;
+  int port;
   unsigned long result;
   ndicapi* pol;
 
@@ -1157,7 +1157,7 @@ static PyObject* Py_ndiGetBXFrame(PyObject* module, PyObject* args)
 
 static PyObject* Py_ndiGetTXFrame(PyObject* module, PyObject* args)
 {
-  char port;
+  int port;
   unsigned long result;
   ndicapi* pol;
 
@@ -1217,7 +1217,7 @@ static PyObject* Py_ndiGetGXPassiveStray(PyObject* module, PyObject* args)
 
 static PyObject* Py_ndiGetPSTATPortStatus(PyObject* module, PyObject* args)
 {
-  char port;
+  int port;
   int result;
   ndicapi* pol;
 
@@ -1233,7 +1233,7 @@ static PyObject* Py_ndiGetPSTATPortStatus(PyObject* module, PyObject* args)
 
 static PyObject* Py_ndiGetPSTATToolInfo(PyObject* module, PyObject* args)
 {
-  char port;
+  int port;
   char result[30];
   ndicapi* pol;
 
@@ -1252,7 +1252,7 @@ static PyObject* Py_ndiGetPSTATToolInfo(PyObject* module, PyObject* args)
 
 static PyObject* Py_ndiGetPSTATCurrentTest(PyObject* module, PyObject* args)
 {
-  char port;
+  int port;
   unsigned long result;
   ndicapi* pol;
 
@@ -1268,7 +1268,7 @@ static PyObject* Py_ndiGetPSTATCurrentTest(PyObject* module, PyObject* args)
 
 static PyObject* Py_ndiGetPSTATPartNumber(PyObject* module, PyObject* args)
 {
-  char port;
+  int port;
   char result[20];
   ndicapi* pol;
 
@@ -1288,7 +1288,7 @@ static PyObject* Py_ndiGetPSTATPartNumber(PyObject* module, PyObject* args)
 
 static PyObject* Py_ndiGetPSTATAccessories(PyObject* module, PyObject* args)
 {
-  char port;
+  int port;
   int result;
   ndicapi* pol;
 
@@ -1304,7 +1304,7 @@ static PyObject* Py_ndiGetPSTATAccessories(PyObject* module, PyObject* args)
 
 static PyObject* Py_ndiGetPSTATMarkerType(PyObject* module, PyObject* args)
 {
-  char port;
+  int port;
   int result;
   ndicapi* pol;
 
