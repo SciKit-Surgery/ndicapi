@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install wheel
+          pip install wheel twine
       
       - name: Add msbuild to PATH
         if: matrix.os == 'windows-latest'
@@ -38,6 +38,7 @@ jobs:
           cmake --build . 
           cd ../
           python.exe setup.py sdist bdist_wheel --plat-name win_amd64
+          python -m twine upload -p secrets.PYPI_API_TOKE dist/* --skip-existing
 
       - name: build ubuntu 
         if: matrix.os == 'ubuntu-latest'
@@ -48,6 +49,7 @@ jobs:
           make
           cd ..
           python setup.py sdist bdist_wheel 
+          python -m twine upload -p secrets.PYPI_API_TOKE dist/* --skip-existing
 
       - name: build macos
         if: matrix.os == 'macos-latest'
@@ -57,10 +59,6 @@ jobs:
           cmake  -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF ..
           make
           cd ..
-          python setup.py sdist bdist_wheel 
+          python setup.py sdist bdist_wheel
+          python -m twine upload -p secrets.PYPI_API_TOKE dist/* --skip-existing
 
-      - name: Publish package
-        uses: pypa/gh-action-pypi-publish@master
-        with:
-          user: __token__
-          password: ${{ secrets.PYPI_API_TOKEN }}
