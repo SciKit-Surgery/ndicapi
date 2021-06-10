@@ -9,7 +9,7 @@ jobs:
       fail-fast: false
       matrix:
         python-ver: [3.6, 3.7, 3.8]
-        os: [ubuntu-18.04, macos-latest, windows-latest]
+        os: [windows-latest]
         experimental: [false]
 
     steps:
@@ -22,13 +22,35 @@ jobs:
       - name: Install dependencies
         run: |
       
-      - name: build
+      - name: build Windows
+        if: matrix.os == 'windows-latest'
+        run: |
+          mkdir build
+          mkdir install
+          cd build
+          cmake -G "%COMPILER%" -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF -DCMAKE_INSTALL_PREFIX=../install --config %CONFIGURATION% ..
+          cmake --build . --config %CONFIGURATION%
+          cd ../
+          "%PYTHON%\\python.exe setup.py sdist bdist_wheel --plat-name win_amd64"
+
+      - name: build ubuntu 
+        if: matrix.os == 'ubuntu-latest'
         run: |
           mkdir build
           cd build
           cmake  -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF ..
           make
           cd ..
+
+      - name: build macos
+        if: matrix.os == 'macos-latest'
+        run: |
+          mkdir build
+          cd build
+          cmake  -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF ..
+          make
+          cd ..
+
 
 
   deploy:
