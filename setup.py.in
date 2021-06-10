@@ -29,6 +29,7 @@ ndicapy = Extension('ndicapy',
                     )
 
 setup(name='ndicapi',
+      setup_requires=['wheel'],
       version='3.2',
       description='This package allows interfacing with NDI tracking devices',
       ext_modules=[ndicapy]
