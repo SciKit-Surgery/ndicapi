@@ -9,7 +9,7 @@ jobs:
       fail-fast: false
       matrix:
         python-ver: [3.7]
-        os: [windows-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
         experimental: [false]
 
     steps:
@@ -30,13 +30,6 @@ jobs:
       - name: build Windows
         if: matrix.os == 'windows-latest'
         run: |
-          set COMPILER="Visual Studio 14 Win6"
-          set CONFIGURATION=Release
-          echo COMPILER = %COMPILER%, CONFIGURATION = %CONFIGURATION%
-          echo %COMPILER%
-          echo %CONFIGURATION%
-          echo %PYTHON%
-          cmake -version
           mkdir build
           mkdir install
           cd build
@@ -53,6 +46,7 @@ jobs:
           cmake  -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF ..
           make
           cd ..
+	  python setup.py sdist bdist_wheel 
 
       - name: build macos
         if: matrix.os == 'macos-latest'
@@ -62,8 +56,7 @@ jobs:
           cmake  -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF ..
           make
           cd ..
-
-
+	  python setup.py sdist bdist_wheel 
 
   deploy:
     runs-on: ubuntu-18.04
