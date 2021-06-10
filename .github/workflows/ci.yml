@@ -38,7 +38,7 @@ jobs:
           cmake -G "Visual Studio 14 Win64" -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF -DCMAKE_INSTALL_PREFIX=../install --config Release ..
           cmake --build . --config Release
           cd ../
-          python.exe setup.py sdist bdist_wheel --plat-name win_amd64"
+          python.exe setup.py sdist bdist_wheel --plat-name win_amd64
 
       - name: build ubuntu 
         if: matrix.os == 'ubuntu-latest'
