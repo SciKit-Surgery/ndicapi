@@ -1,36 +1,24 @@
+[![Build Status](https://travis-ci.com/thompson318/ndicapi.svg?branch=ci-scripts)](https://travis-ci.com/thompson318/ndicapi)
+[![Build Status](https://ci.appveyor.com/api/projects/status/e32ecvlt0cwp8lfl/branch/ci-scripts?svg=true)](https://ci.appveyor.com/project/thompson318/ndicapi)
+
 # History
 * Program:   NDI Combined API C Interface Library
 * Creator:   David Gobbi
 * Language:  English
-* Authors:    
+* Authors:
   * David Gobbi
   * Andras Lasso <lassoan@queensu.ca>
   * Adam Rankin <arankin@robarts.ca>
-* Version: 1.4
-  * Date: 2005/07/01
-* Version: 1.5
-  * Date: 2015/05/30
-* Version: 1.6
-  * Date: 2016/03/08
+  * Stephen Thompson <s.thompson@ucl.ac.uk>
 
 # Overview
 
 This package provides a portable C library that provides a straightforward interface to AURORA, POLARIS, and VEGA systems manufactured by Northern Digital Inc. This library is provided by the Plus library, and is not supported by Northern Digital Inc.
 
-The contents of this package have been built successfully under a wide range of compilers. It is a [CMake](https://cmake.org/download/) project and can be configured and built as such.
+This fork implements continuous integration and deployment of binary Python wheels to PyPi. Otherwise it should remain identical to the upstream project.
 
 ## Building
-To build, configure first using CMake, then build according to your chosen generator.
-
-### Python
-To build the [Python][python] extension module of this library:
-
-1. Build **and** install the C++ library first.
-1. Then build and install the Python extension: `pip install .` (assuming the command is called in your repo clone directory)
-
-[python]: http://www.python.org
-
-You can test your installation by running `python -c 'import ndicapy'`
+Building and deployment should be handled automatically using github actions. For details see .github/workflows/ci.yml
 
 ## Contents
 The main contents of this package are as follows:
@@ -39,4 +27,10 @@ The main contents of this package are as follows:
 
 2) Two C++ header files (ndicapi.h and ndicapi_math.h) that provide and interface, via libndicapi.a, to an NDI device via the NDICAPI Serial Communications API that predated the Combined API. Documentation is provided in the polaris_html directory.
 
-4) A python interface to the ndicapi library.  However, only the original POLARIS API is supported through python.  The full ndicapi interface is not yet supported.
+4) A pythoninterface to the ndicapi library.  However, only the original POLARIS API is supported through python.  The full ndicapi interface is not yet supported.
+
+## Acknowledgments
+
+The implementation of continuous integration and deployment was Supported by the [Wellcome Trust](https://wellcome.ac.uk/)  and the [EPSRC](https://www.epsrc.ac.uk/) as part of the [Wellcome Centre for Interventional and Surgical Sciences](http://www.ucl.ac.uk/weiss).
+
+
