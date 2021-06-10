@@ -49,7 +49,7 @@ jobs:
           make
           cd ..
           python setup.py sdist bdist_wheel 
-          python -m auditwheel repair dist/*
+          python -m auditwheel repair dist/ndicapi*linux_x86_64.whl
           python -m twine upload -u __token__ -p ${{secrets.PYPI_API_TOKEN}} dist/*manylinux* --skip-existing
 
       - name: build macos
