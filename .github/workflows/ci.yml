@@ -58,7 +58,7 @@ jobs:
       - name: upload manylinux
         if: matrix.os == 'ubuntu-latest'
         run: |
-          python -m twine upload -u __token__ -p ${{secrets.PYPI_API_TOKEN}} dist/* --skip-existing
+          python -m twine upload -u __token__ -p ${{secrets.PYPI_API_TOKEN}} dist/*-manylinux*.whl --skip-existing
 
       - name: build macos
         if: matrix.os == 'macos-latest'
