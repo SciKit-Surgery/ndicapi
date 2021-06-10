@@ -25,12 +25,12 @@ jobs:
           pip install -r requirements-dev.txt
       
       - name: build
-	run: |
+        run: |
           mkdir build
-	  cd build
-	  cmake  -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF ..
-	  make
-	  cd ..
+          cd build
+          cmake  -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF ..
+          make
+          cd ..
 
 
   deploy:
