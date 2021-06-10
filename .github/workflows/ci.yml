@@ -28,8 +28,8 @@ jobs:
           set COMPILER=Visual Studio 14 Win64
           set CONFIGURATION=Release
           echo COMPILER = %COMPILER%, CONFIGURATION = %CONFIGURATION%
-	  echo %COMPILER%
-	  echo %CONFIGURATION%
+          echo %COMPILER%
+          echo %CONFIGURATION%
           cmake -version
           mkdir build
           mkdir install
