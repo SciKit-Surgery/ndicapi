@@ -35,8 +35,8 @@ jobs:
           mkdir build
           mkdir install
           cd build
-          cmake -G "Visual Studio 14 Win64" -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF -DCMAKE_INSTALL_PREFIX=../install --config Release ..
-          cmake --build . --config Release
+          cmake -G "Visual Studio 14 Win64" -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF -DCMAKE_INSTALL_PREFIX=../install ..
+          cmake --build . 
           cd ../
           python.exe setup.py sdist bdist_wheel --plat-name win_amd64
 
