@@ -1,5 +1,8 @@
-[![Build Status](https://travis-ci.com/thompson318/ndicapi.svg?branch=ci-scripts)](https://travis-ci.com/thompson318/ndicapi)
-[![Build Status](https://ci.appveyor.com/api/projects/status/e32ecvlt0cwp8lfl/branch/ci-scripts?svg=true)](https://ci.appveyor.com/project/thompson318/ndicapi)
+
+.. image:: https://github.com/thompson318/ndicapi/workflows/.github/workflows/ci.yml/badge.svg
+   :target: https://github.com/thompson318/ndicapi/actions
+   :alt: GitHub Actions CI statuss
+
 
 # History
 * Program:   NDI Combined API C Interface Library
