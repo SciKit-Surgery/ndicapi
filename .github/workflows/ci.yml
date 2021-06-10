@@ -25,6 +25,8 @@ jobs:
       - name: build Windows
         if: matrix.os == 'windows-latest'
         run: |
+          export COMPILER="Visual Studio 14 Win64"
+          export CONFIGURATION="Release"
           echo COMPILER = %COMPILER%, CONFIGURATION = %CONFIGURATION%
           cmake -version
           mkdir build
