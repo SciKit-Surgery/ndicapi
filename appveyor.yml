@@ -15,7 +15,7 @@ skip_commits:
 environment:
   matrix:
     - COMPILER: "Visual Studio 14 Win64"
-      PYTHON: "C:\\Python37-x64"
+      PYTHON: "C:\\Python38-x64"
 
 install:
   # We need wheel installed to build wheels
@@ -38,7 +38,7 @@ before_build:
   - cmake -version
   - pwd
   - git submodule update -q --init --recursive
-  - set PATH=C:\Python37-x64;%PATH%
+  - set PATH=C:\Python38-x64;%PATH%
   - rem --------------------------------------------------------------------------------
 
 build_script:
