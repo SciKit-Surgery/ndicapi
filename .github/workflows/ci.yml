@@ -45,12 +45,15 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake  -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=OFF  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF ..
+          cmake  -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF ..
           make
           cd ..
-          python setup.py sdist bdist_wheel 
-          python -m auditwheel repair dist/ndicapi*linux_x86_64.whl
-          python -m twine upload -u __token__ -p ${{secrets.PYPI_API_TOKEN}} dist/*manylinux* --skip-existing
+
+      - name: build ubuntu manylinux
+	if: matrix.os == 'ubuntu-latest'
+	uses: RalfG/python-wheels-manylinux-build@v0.3.4-manylinux2010_x86_64
+        with:
+          python-versions: 'cp36-cp36m cp37-cp37m cp38-cp38m'
 
       - name: build macos
         if: matrix.os == 'macos-latest'
