@@ -1,8 +1,4 @@
-
-.. image:: https://github.com/thompson318/ndicapi/workflows/.github/workflows/ci.yml/badge.svg
-   :target: https://github.com/thompson318/ndicapi/actions
-   :alt: GitHub Actions CI statuss
-
+-[![Build Status](https://github.com/thompson318/ndicapi/workflows/.github/workflows/ci.yml/badge.svg)](https://github.com/thompson318/ndicapi/actions)
 
 # History
 * Program:   NDI Combined API C Interface Library
