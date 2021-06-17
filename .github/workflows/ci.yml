@@ -38,7 +38,7 @@ jobs:
           cmake --build . 
           cd ../
           python.exe setup.py sdist bdist_wheel --plat-name win_amd64
-          python -m twine upload -u __token__ -p ${{secrets.PYPI_API_TOKEN}} dist/* --skip-existing
+          python -m twine upload --repository testpypi -u __token__ -p ${{secrets.TEST_PYPI_API_TOKEN}} dist/* --skip-existing
 
       - name: build ubuntu 
         if: matrix.os == 'ubuntu-latest'
@@ -58,7 +58,7 @@ jobs:
       - name: upload manylinux
         if: matrix.os == 'ubuntu-latest'
         run: |
-          python -m twine upload -u __token__ -p ${{secrets.PYPI_API_TOKEN}} dist/*-manylinux*.whl --skip-existing
+          python -m twine upload --repository testpypi -u __token__ -p ${{secrets.TEST_PYPI_API_TOKEN}} dist/*-manylinux*.whl --skip-existing
 
       - name: build macos
         if: matrix.os == 'macos-latest'
@@ -69,5 +69,5 @@ jobs:
           make
           cd ..
           python setup.py sdist bdist_wheel
-          python -m twine upload -u __token__ -p ${{secrets.PYPI_API_TOKEN}} dist/* --skip-existing
+          python -m twine upload --repository testpypi -u __token__ -p ${{secrets.TEST_PYPI_API_TOKEN}} dist/* --skip-existing
 
