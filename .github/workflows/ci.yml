@@ -40,6 +40,18 @@ jobs:
           python.exe setup.py sdist bdist_wheel --plat-name win_amd64
           python -m twine upload -u __token__ -p ${{secrets.PYPI_API_TOKEN}} dist/* --skip-existing
 
+      - name: build Windows-32bit
+        if: matrix.os == 'windows-latest'
+        run: |
+          mkdir build
+          mkdir install
+          cd build
+          cmake -G "Visual Studio 14 Win32" -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF -DCMAKE_INSTALL_PREFIX=../install ..
+          cmake --build .
+          cd ../
+          python.exe setup.py sdist bdist_wheel --plat-name win32
+          python -m twine upload -u __token__ -p ${{secrets.PYPI_API_TOKEN}} dist/* --skip-existing
+
       - name: build ubuntu 
         if: matrix.os == 'ubuntu-latest'
         run: |
