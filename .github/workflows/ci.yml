@@ -34,7 +34,7 @@ jobs:
           mkdir build
           mkdir install
           cd build
-          cmake -G "Visual Studio 16" -A Win64 -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF -DCMAKE_INSTALL_PREFIX=../install ..
+          cmake -G "Visual Studio 17" -A Win64 -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF -DCMAKE_INSTALL_PREFIX=../install ..
           cmake --build . 
           cd ../
           python.exe setup.py sdist bdist_wheel --plat-name win_amd64
@@ -48,7 +48,7 @@ jobs:
           mkdir build
           mkdir install
           cd build
-          cmake -G "Visual Studio 16" -A Win32 -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF -DCMAKE_INSTALL_PREFIX=../install ..
+          cmake -G "Visual Studio 17" -A Win32 -DBUILD_PYTHON:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON  -Dndicapi_BUILD_APPLICATIONS:BOOL=OFF -DCMAKE_INSTALL_PREFIX=../install ..
           cmake --build .
           cd ../
           python.exe setup.py sdist bdist_wheel --plat-name win32
