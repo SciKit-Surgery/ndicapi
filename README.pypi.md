@@ -10,7 +10,7 @@
 
 # Overview
 These are binary python wheels of the PlusToolKits's ndicapi library (https://github.com/PlusToolkit/ndicapi).
-The CI scripts where developed on and hosted by (https://github.com/thompson318/ndicapi).
+The CI scripts where developed on and hosted by (https://github.com/scikit-surgery/ndicapi).
 
 This package provides provides a straightforward Python interface to AURORA, POLARIS, and VEGA systems manufactured by Northern Digital Inc. This library is provided by the Plus library, and is not supported by Northern Digital Inc.
 

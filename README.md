@@ -1,4 +1,4 @@
--[![Build Status](https://github.com/thompson318/ndicapi/workflows/.github/workflows/ci.yml/badge.svg)](https://github.com/thompson318/ndicapi/actions)
+-[![Build Status](https://github.com/scikit-surgery/ndicapi/workflows/.github/workflows/ci.yml/badge.svg)](https://github.com/scikit-surgery/ndicapi/actions)
 
 # History
 * Program:   NDI Combined API C Interface Library
