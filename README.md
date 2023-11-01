@@ -31,5 +31,6 @@ The main contents of this package are as follows:
 ## Acknowledgments
 
 The implementation of continuous integration and deployment was Supported by the [Wellcome Trust](https://wellcome.ac.uk/)  and the [EPSRC](https://www.epsrc.ac.uk/) as part of the [Wellcome Centre for Interventional and Surgical Sciences](http://www.ucl.ac.uk/weiss).
+The ndicapi library was developed as part of the [PLUS Toolkit](https://plustoolkit.github.io/).
 
 
