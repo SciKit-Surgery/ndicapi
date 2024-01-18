@@ -1748,8 +1748,8 @@ ndicapiExport MOD_INIT(ndicapy)
   PyNdicapiType.ob_type = &PyType_Type;
   PyNDIBitfield_Type.ob_type = &PyType_Type;
 #else
-  Py_SET_TYPE(&PyNdicapiType) = &PyType_Type;
-  Py_SET_TYPE(&PyNDIBitfield_Type) = &PyType_Type;
+  Py_SET_TYPE(&PyNdicapiType, &PyType_Type);
+  Py_SET_TYPE(&PyNDIBitfield_Type, &PyType_Type);
 #endif
 
   MOD_DEF(module, "ndicapy", NULL, NdicapiMethods);
