@@ -1748,8 +1748,13 @@ ndicapiExport MOD_INIT(ndicapy)
   PyNdicapiType.ob_type = &PyType_Type;
   PyNDIBitfield_Type.ob_type = &PyType_Type;
 #else
-  Py_TYPE(&PyNdicapiType) = &PyType_Type;
-  Py_TYPE(&PyNDIBitfield_Type) = &PyType_Type;
+  #if PY_MINOR_VERSION < 11
+    Py_TYPE(&PyNdicapiType) = &PyType_Type;
+    Py_TYPE(&PyNDIBitfield_Type) = &PyType_Type;
+  #else
+    Py_SET_TYPE(&PyNdicapiType, &PyType_Type);
+    Py_SET_TYPE(&PyNDIBitfield_Type, &PyType_Type);
+  #endif
 #endif
 
   MOD_DEF(module, "ndicapy", NULL, NdicapiMethods);
@@ -1764,7 +1769,6 @@ ndicapiExport MOD_INIT(ndicapy)
 
   Py_NDIConstantMacro(NDI_OKAY);
 
-  Py_NDIErrcodeMacro(NDI_OKAY);
   Py_NDIErrcodeMacro(NDI_INVALID);
   Py_NDIErrcodeMacro(NDI_TOO_LONG);
   Py_NDIErrcodeMacro(NDI_TOO_SHORT);
