@@ -1748,7 +1748,7 @@ ndicapiExport MOD_INIT(ndicapy)
   PyNdicapiType.ob_type = &PyType_Type;
   PyNDIBitfield_Type.ob_type = &PyType_Type;
 #else
-#if PY_MINOR_VERSION < 3.9
+#if PY_MINOR_VERSION < 9
   Py_TYPE(&PyNdicapiType) = &PyType_Type;
   Py_TYPE(&PyNDIBitfield_Type) = &PyType_Type;
 #else
