@@ -8,14 +8,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-ver: [3.7, 3.8, 3.9]
+        python-ver: [3.7, 3.8, 3.9, '3.10', '3.11']
         os: [ubuntu-latest, windows-latest, macos-latest]
         experimental: [false]
 
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-ver }}
 
@@ -67,9 +67,9 @@ jobs:
 
       - name: build ubuntu manylinux
         if: matrix.os == 'ubuntu-latest'
-        uses: RalfG/python-wheels-manylinux-build@v0.3.4-manylinux2010_x86_64
+        uses: RalfG/python-wheels-manylinux-build@v0.7.1-manylinux2010_x86_64
         with:
-          python-versions: 'cp36-cp36m cp37-cp37m cp38-cp38 cp39-cp39'
+          python-versions: 'cp36-cp36m cp37-cp37m cp38-cp38 cp39-cp39 cp310-cp310'
 
       - name: upload manylinux
         if: matrix.os == 'ubuntu-latest'
