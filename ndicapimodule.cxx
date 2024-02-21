@@ -26,6 +26,7 @@
   #define PyString_AsString PyUnicode_AsUTF8
   #define PyIntObject PyLongObject
   //#define PY_INT_OBJECT_OB_IVAL(ob) PyLong_AsLong((PyObject*)(ob))
+  #define CYTHON_USE_PYLONG_INTERNALS 0 
   #define PY_INT_OBJECT_OB_IVAL(ob) ob->ob_digit[0]
   #define cmpfunc PyAsyncMethods*
 #else
