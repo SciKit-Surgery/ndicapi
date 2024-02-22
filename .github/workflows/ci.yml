@@ -8,7 +8,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-ver: ['3.12']
+        python-ver: [3.7, 3.8, 3.9, '3.10', '3.11', '3.12']
         os: [ubuntu-latest, windows-latest, macos-latest]
         experimental: [false]
 
@@ -38,6 +38,7 @@ jobs:
           cmake --build . 
           cd ../
           python.exe -m build
+          python -m twine upload -u __token__ -p ${{secrets.PYPI_API_TOKEN}} dist/* --skip-existing
           rm -r build
           rm -r install
 
@@ -51,6 +52,7 @@ jobs:
           cmake --build .
           cd ../
           python.exe -m build
+          python -m twine upload -u __token__ -p ${{secrets.PYPI_API_TOKEN}} dist/* --skip-existing
           rm -r build
           rm -r install
 
@@ -64,6 +66,17 @@ jobs:
           cd ..
           python -m build
 
+      - name: build ubuntu manylinux
+        if: matrix.os == 'ubuntu-latest'
+        uses: RalfG/python-wheels-manylinux-build@v0.7.1-manylinux2010_x86_64
+        with:
+          python-versions: 'cp36-cp36m cp37-cp37m cp38-cp38 cp39-cp39 cp310-cp310'
+ 
+      - name: upload manylinux
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          python -m twine upload -u __token__ -p ${{secrets.PYPI_API_TOKEN}} dist/*-manylinux*.whl --skip-existing
+
       - name: build macos
         if: matrix.os == 'macos-latest'
         run: |
@@ -73,4 +86,5 @@ jobs:
           make
           cd ..
           python -m build
+          python -m twine upload -u __token__ -p ${{secrets.PYPI_API_TOKEN}} dist/* --skip-existing
 
