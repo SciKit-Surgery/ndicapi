@@ -26,7 +26,6 @@
   #define PyString_AsString PyUnicode_AsUTF8
   #define PyIntObject PyLongObject
   //#define PY_INT_OBJECT_OB_IVAL(ob) PyLong_AsLong((PyObject*)(ob))
-  #define CYTHON_USE_PYLONG_INTERNALS 1 
   #if PY_MINOR_VERSION < 12
     #define PY_INT_OBJECT_OB_IVAL(ob) ob->ob_digit[0]
   #else
