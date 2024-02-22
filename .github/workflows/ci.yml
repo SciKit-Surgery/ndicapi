@@ -74,7 +74,6 @@ jobs:
  
       - name: upload manylinux
         if: matrix.os == 'ubuntu-latest' && python-ver == '3.10'
-        if: python-ver == '3.10'
         run: |
           python -m twine upload -u __token__ -p ${{secrets.PYPI_API_TOKEN}} dist/*-manylinux*.whl --skip-existing
 
