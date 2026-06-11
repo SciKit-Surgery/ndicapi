@@ -9,7 +9,7 @@ jobs:
       fail-fast: false
       matrix:
         python-ver: [3.8, 3.9, '3.10', '3.11', '3.12', '3.13']
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-slim, windows-latest, macos-latest]
         experimental: [false]
 
     steps:
@@ -62,7 +62,7 @@ jobs:
           rm -r install
 
       - name: build ubuntu 
-        if: matrix.os == 'ubuntu-latest'
+        if: matrix.os == 'ubuntu-slim'
         run: |
           mkdir build
           cd build
@@ -70,17 +70,7 @@ jobs:
           make
           cd ..
           python -m build
-
-      - name: build ubuntu manylinux
-        if: matrix.os == 'ubuntu-latest' && matrix.python-ver == '3.10'
-        uses: RalfG/python-wheels-manylinux-build@v0.7.1-manylinux2010_x86_64
-        with:
-          python-versions: 'cp36-cp36m cp37-cp37m cp38-cp38 cp39-cp39 cp310-cp310 cp311-cp311 cp312-cp312 cp313-cp313' 
- 
-      - name: upload manylinux
-        if: matrix.os == 'ubuntu-latest' && matrix.python-ver == '3.10'
-        run: |
-          python -m twine upload -u __token__ -p ${{secrets.PYPI_API_TOKEN}} dist/*-manylinux*.whl --skip-existing
+          python -m twine upload -u __token__ -p ${{secrets.PYPI_API_TOKEN}} dist/* --skip-existing
 
       - name: build macos
         if: matrix.os == 'macos-latest'
