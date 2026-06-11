@@ -8,8 +8,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-ver: [3.8, 3.9, '3.10', '3.11', '3.12', '3.13']
-        os: [ubuntu-slim, windows-latest, macos-latest]
+        python-ver: ['3.13']
+        os: [ubuntu-slim]
         experimental: [false]
 
     steps:
@@ -70,7 +70,7 @@ jobs:
           make
           cd ..
           python -m build
-          python -m twine upload -u __token__ -p ${{secrets.PYPI_API_TOKEN}} dist/* --skip-existing
+          python -m twine upload -u __token__ -p ${{secrets.PYPI_API_TOKEN}} dist/* --skip-existing --verbose
 
       - name: build macos
         if: matrix.os == 'macos-latest'
