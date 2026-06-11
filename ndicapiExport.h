@@ -12,8 +12,6 @@
 #ifndef __ndicapiExport_h
 #define __ndicapiExport_h
 
-#cmakedefine ndicapi_STATIC
-
 #if defined(WIN32) && !defined(ndicapi_STATIC)
  #if defined(ndicapi_EXPORTS)
   #define ndicapiExport __declspec( dllexport )
