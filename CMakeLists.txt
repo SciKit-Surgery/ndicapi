@@ -1,7 +1,7 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 4.0.0)
 PROJECT(ndicapi)
 
-SET(ndicapi_VERSION 3.7.3)
+SET(ndicapi_VERSION 3.7.4)
 
 # --------------------------------------------------------------------------
 # Configure output paths for libraries and executables.
@@ -65,20 +65,6 @@ IF(BUILD_PYTHON)
       " shared library (CMake option BUILD_SHARED_LIBS)."
       )
   ENDIF()
-  SET(SETUP_PY_FILEPATH ${CMAKE_CURRENT_SOURCE_DIR}/setup.py)
-  CONFIGURE_FILE(
-    ${CMAKE_CURRENT_SOURCE_DIR}/setup.py.in
-    ${SETUP_PY_FILEPATH}
-    )
-  MESSAGE(
-    "Successfully generated ${SETUP_PY_FILEPATH} for the Python"
-    " extension module. To install the Python extension module:"
-    "\n\t0) Install the C++ library: make && make install"
-    " (might need admin access)"
-    "\n\t1) Go to ${CMAKE_CURRENT_SOURCE_DIR}"
-    "\n\t2) Build and install the Python extension:"
-    " python setup.py install (might require admin access)"
-    )
 ENDIF()
 
 FIND_PACKAGE(Threads)
