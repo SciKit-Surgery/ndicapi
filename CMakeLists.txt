@@ -1,7 +1,7 @@
 PROJECT(ndicapi)
 CMAKE_MINIMUM_REQUIRED(VERSION 3.22.6)
 
-SET(ndicapi_VERSION 3.7.4)
+SET(ndicapi_VERSION 3.7.5)
 
 # --------------------------------------------------------------------------
 # Configure output paths for libraries and executables.
