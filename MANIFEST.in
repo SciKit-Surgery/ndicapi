@@ -1,0 +1,6 @@
+include *.cxx
+include *.h
+include README.pypi.md
+include CMakeLists.txt
+include ndicapiConfig.cmake.in
+include ndicapiConfigVersion.cmake.in
