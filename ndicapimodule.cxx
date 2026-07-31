@@ -752,11 +752,16 @@ static PyObject* Py_ndiCommand(PyObject* module, PyObject* args)
       return NULL;
     }
 
-    result = ndiCommand(pol, "%s", PyString_AsString(newstring));
+    const char* cmd_cstr = PyString_AsString(newstring);
+    Py_BEGIN_ALLOW_THREADS
+    result = ndiCommand(pol, "%s", cmd_cstr);
+    Py_END_ALLOW_THREADS
   }
   else
   {
+    Py_BEGIN_ALLOW_THREADS
     result = ndiCommand(pol, NULL);
+    Py_END_ALLOW_THREADS
   }
 
   if (newstring != NULL)
